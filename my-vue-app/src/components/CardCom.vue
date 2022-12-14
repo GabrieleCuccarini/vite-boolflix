@@ -1,11 +1,8 @@
 <script>
 import {store} from '../store.js'
 export default {
-    props: {
-        test: {
-            type: Object,
-            required: true
-        }
+  props: {
+        singlemovie: Object
     },
   data() {
     return {
@@ -19,20 +16,21 @@ export default {
 
 <template>
   <div class="card">
-    <img :src="test.src" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ test.titolo }}</h5>
-      <p class="card-text">
-      <ul>
-        <li >Cottura: {{ test.cottura }}min</li>
-      </ul>
-      </p>
-    </div>
+      <img class="card-img-top" :src=" 'https://image.tmdb.org/t/p/w342' + singlemovie.poster_path" alt="Card image cap">
+      <div class="card-body">
+          <div class="card-title">{{singlemovie.title}}</div>
+            <div class="card-text">{{singlemovie.original_title}}</div>
+            <div class="card-text">{{singlemovie.original_language}}</div>
+            <div class="card-text">{{singlemovie.vote_average}}</div>
+      </div>
   </div>
 </template>
 
 
 
 <style scoped lang="scss">
-
+.card {
+  padding: 32px 0;
+  margin: 8px 6px;
+}
 </style>

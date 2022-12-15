@@ -1,13 +1,24 @@
 <script>
+import {store} from '../store.js';
 
+export default {
+  data() {
+    return {
+      store,
+    }
+  }
+}
 </script>
+
 
 <template>
     <div class="container d-flex align-items-center justify-content-center">
-        <input type="text" id="nomefilm" placeholder="Cerca un film...">
-        <button class="btn btn-dark">Cerca</button>
+        <input type="text" v-model="store.searchText" id="nomefilm" placeholder="Cerca un film...">
+        <button class="btn btn-dark" @click="$emit('performSearch')">Cerca</button>
     </div>
 </template>
+
+
 
 <style scoped lang="scss">
 .container {

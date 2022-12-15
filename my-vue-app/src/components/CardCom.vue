@@ -30,7 +30,7 @@ export default {
 
 <style scoped lang="scss">
 .card {
-  padding: 32px 0;
+  padding: 0;
   margin: 8px 6px;
 }
 </style>

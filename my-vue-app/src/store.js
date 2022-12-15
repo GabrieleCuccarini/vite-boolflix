@@ -5,3 +5,12 @@ export const store = reactive ({
     movies: [],
     series: []
 })
+
+// export default {
+//     methods: {
+//         startSearch() {
+//         store.searchText = this.inputText
+//         console.log(this.inputText)
+//         }
+//     }
+// }

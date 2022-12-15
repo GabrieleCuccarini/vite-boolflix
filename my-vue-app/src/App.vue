@@ -13,25 +13,28 @@ export default {
     }
   },
   // PASSAGGIO 1 CHIAMATA API. DENTRO CI SONO LE PARAMS 
-  created() {
-  axios.get('https://api.themoviedb.org/3/search/movie?',
-  {params: {
+  methods: {
+    methodSearch() {
+    axios.get('https://api.themoviedb.org/3/search/movie?',
+    {params: {
     api_key: 'eb1ed900c48680a9ff96c2b827993131',
-    query: 'eroe',
+    // query diventa store.searchText
+    query: store.searchText,
     // language: 'it-IT',
     }
   })
-  // PASSAGGIO 2: ASSEGNO ALLO STORE IL VALORE DELL'ARRAY DI RISULTATI(resp.data.results)
-    .then(resp => {
-      store.movies = resp.data.results
-      console.log(store.movies)
-    })
+    // PASSAGGIO 2: ASSEGNO ALLO STORE IL VALORE DELL'ARRAY DI RISULTATI(resp.data.results)
+      .then(resp => {
+        store.movies = resp.data.results
+        console.log(store.movies)
+      })
+    }
   }
 }
 </script>
 
 <template>
-  <HeaderCom></HeaderCom>
+  <HeaderCom @performSearch="methodSearch"></HeaderCom>
   <MainCom></MainCom>
 </template>
 

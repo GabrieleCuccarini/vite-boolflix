@@ -12,7 +12,7 @@ export default {
 
 
 <template>
-    <div class="container d-flex align-items-center justify-content-center">
+    <div class="container-fluid d-flex align-items-center justify-content-center">
         <input type="text" v-model="store.searchText" id="nomefilm" placeholder="Cerca un film...">
         <button class="btn btn-dark" @click="$emit('performSearch')">Cerca</button>
     </div>
@@ -21,7 +21,7 @@ export default {
 
 
 <style scoped lang="scss">
-.container {
+.container-fluid {
     margin-bottom: 1rem;
     input {
         width: 250px;

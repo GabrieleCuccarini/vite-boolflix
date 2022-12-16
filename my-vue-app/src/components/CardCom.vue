@@ -2,7 +2,8 @@
 import {store} from '../store.js'
 export default {
   props: {
-        singlemovie: Object
+        singlemovie: Object,
+        // singletv: Object
     },
   data() {
     return {
@@ -10,6 +11,8 @@ export default {
     }
   },
   methods: {
+    // Metodo per piazzare le bandiere: ciclo di if->else if dove 
+    // alla stringa language viene fatta corrispondere un'icona
     placeFlag() {
       if (this.singlemovie.original_language === "en") { 
         return "flag-icon flag-icon-gb"
@@ -22,15 +25,21 @@ export default {
       } else if (this.singlemovie.original_language === "ja") { 
         return "flag-icon flag-icon-jp"
       } else if (this.singlemovie.original_language === "de") { 
-        return "flag-icon flag-icon-gb"
+        return "flag-icon flag-icon-de"
       } else if (this.singlemovie.original_language === "ru") { 
         return "flag-icon flag-icon-ru"
       } else if (this.singlemovie.original_language === "hi") { 
         return "flag-icon flag-icon-in"
         // PORTOGHESE DA VERIFICARE
-      } else if (this.singlemovie.original_language === "pr") { 
-        return "flag-icon flag-icon-in"
+      } else if (this.singlemovie.original_language === "pt") { 
+        return "flag-icon flag-icon-pt"
+      } else if (this.singlemovie.original_language === "el") { 
+        return "flag-icon flag-icon-gr"
       }
+    }
+  }, computed: {
+      setStars(){
+      return Math.floor(this.singlemovie.vote_average / 2)
     }
   }
 }
@@ -51,7 +60,10 @@ export default {
               <span v-if='placeFlag()' :class='placeFlag()'></span>
               <span v-else class="flag-icon flag-icon-xx"></span>
             </div>
-            <div class="card-text"><b>Rating</b>: {{singlemovie.vote_average}}</div>            
+            <div class="card-text d-flex align-items-center">
+              <b>Rating</b>: {{setStars}}
+               <img src="../star.png" alt="">
+            </div>            
       </div>
   </div>
 </template>
@@ -66,6 +78,9 @@ export default {
 
 .card-text {
   margin-top: 6px;
+  img {
+    width: 20px;
+  }
 }
 .card-body {
   background-color: aliceblue;

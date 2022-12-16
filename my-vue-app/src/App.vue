@@ -12,13 +12,13 @@ export default {
       store
     }
   },
-  // PASSAGGIO 1 CHIAMATA API. DENTRO CI SONO LE PARAMS 
+  // PASSAGGIO 1 CHIAMATA API. DENTRO CI SONO LE PARAMS DELLA CALL
   methods: {
     methodSearch() {
     axios.get('https://api.themoviedb.org/3/search/movie?',
     {params: {
     api_key: 'eb1ed900c48680a9ff96c2b827993131',
-    // query diventa store.searchText
+    // query diventerà store.searchText
     query: store.searchText,
     // language: 'it-IT',
     }
@@ -28,6 +28,18 @@ export default {
         store.movies = resp.data.results
         console.log(store.movies)
       })
+
+      // CHIAMATA SERIE TV
+  //     axios.get('https://api.themoviedb.org/3/search/tv?',
+  //   {params: {
+  //   api_key: 'eb1ed900c48680a9ff96c2b827993131',
+  //   query: store.searchText,
+  //   }
+  // })
+  //     .then(resp2 => {
+  //       store.series = resp2.data.results
+  //       console.log(store.series)
+  //     })
     }
   }
 }

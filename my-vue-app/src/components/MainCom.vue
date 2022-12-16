@@ -20,7 +20,8 @@ export default {
             <!--  PASSAGGIO 4 CREO IL CICLO FOR NELL'ARRAY store.movies 
                 CREATO PRECEDENTEMENTE. POI ASSEGNO ALLA PROPS IL VALORE 
                 DEL SINGOLO ITEM NELL'ARRAY store.movies, ALIAS card -->
-                <CardCom :singlemovie="card" class="col-3" v-for="(card, i) in store.movies" :key="i"/>
+                <CardCom :singlemovie="card" class="col-3" v-for="(card, i) in store.movies" :key=" 'movie' + i" />
+                <!-- <CardCom :singletv="tvshow" class="col-3" v-for="(tvshow, i) in store.series" :key=" 'serie' + i" /> -->
             </div>
         </div>
     </div>

@@ -12,9 +12,15 @@ export default {
 
 
 <template>
-    <div class="container-fluid d-flex align-items-center justify-content-center">
-        <input type="text" v-model="store.searchText" id="nomefilm" placeholder="Cerca un film...">
-        <button class="btn btn-dark" @click="$emit('performSearch')">Cerca</button>
+    <div class="container-fluid d-flex align-items-center justify-content-around">
+        <div class="logo-cont">
+          <img src="../netflix.png" alt="">
+        </div>
+        <div>
+          <input type="text" v-model="store.searchText" id="nomefilm" placeholder="Cerca un film...">
+          <button class="btn btn-dark" @click="$emit('performSearch')">Cerca</button>
+        </div>
+        
     </div>
 </template>
 
@@ -22,7 +28,13 @@ export default {
 
 <style scoped lang="scss">
 .container-fluid {
+    width: 100vw;
+    padding: 1rem;
     margin-bottom: 1rem;
+    background-color: black;
+    img {
+      width: 400px;
+    }
     input {
         width: 250px;
         height: 38px;

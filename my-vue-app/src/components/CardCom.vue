@@ -52,18 +52,19 @@ export default {
   SOLO CARDCOM, NO ALTRO COMPONENTE PER SERIES -->
   <div class="card">
       <img class="card-img-top" :src=" 'https://image.tmdb.org/t/p/w342' + singlemovie.poster_path" alt="Card image cap">
-      <div class="card-body">
+      <div class="card-body overflow-auto">
           <div class="card-title"><b>Title</b>: {{singlemovie.title}}</div>
             <div class="card-text"><b>Original Title</b>: {{singlemovie.original_title}}</div>
             <!-- {{singlemovie.original_language}} è l'elemento corrispondente alla lingua -->
-            <div class="card-text"><b>Language</b>: 
+            <div class="card-text flags"><b>Language</b>: 
               <span v-if='placeFlag()' :class='placeFlag()'></span>
               <span v-else class="flag-icon flag-icon-xx"></span>
             </div>
             <div class="card-text d-flex align-items-center">
               <b>Rating</b>: {{setStars}}
                <img src="../star.png" alt="">
-            </div>            
+            </div>   
+            <div class="card-text"><b>Overview</b>: {{singlemovie.overview}}</div>         
       </div>
   </div>
 </template>
@@ -71,18 +72,29 @@ export default {
 
 
 <style scoped lang="scss">
+
 .card {
+  position: relative;
   padding: 0;
   margin: 8px 6px;
-}
-
-.card-text {
-  margin-top: 6px;
-  img {
-    width: 20px;
+  .card-img-top {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 3;
+    &:hover {
+      z-index: 1;
+    }
   }
+  .card-body {
+    z-index: 2;
+    background-color: aliceblue;
 }
-.card-body {
-  background-color: aliceblue;
+    .card-text {
+      margin-top: 6px;
+      img {
+        width: 20px;
+      }
+  }
 }
 </style>

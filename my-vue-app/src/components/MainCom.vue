@@ -28,7 +28,11 @@ export default {
 </template>
 
 <style scoped lang="scss">
+.container-fluid {
+    background-color: rgb(67,67,67);
+}
 .col-3 {
     width: calc(25% - 12px);
+    height: 400px;
 }
 </style>

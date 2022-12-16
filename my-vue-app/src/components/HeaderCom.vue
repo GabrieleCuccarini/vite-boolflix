@@ -14,7 +14,7 @@ export default {
 <template>
     <div class="container-fluid d-flex align-items-center justify-content-around">
         <div class="logo-cont">
-          <img src="../netflix.png" alt="">
+          <img src="../img/netflix.png" alt="">
         </div>
         <div>
           <input type="text" v-model="store.searchText" id="nomefilm" placeholder="Cerca un film...">

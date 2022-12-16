@@ -69,7 +69,7 @@ export default {
             </div>
             <div class="card-text d-flex align-items-center">
               <b>Rating</b>: {{setStars}}
-               <img src="../star.png" alt="">
+               <img src="../img/star.png" alt="">
             </div>   
             <div class="card-text"><b>Overview</b>: {{singlemovie.overview}}</div>         
       </div>

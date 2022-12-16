@@ -38,8 +38,15 @@ export default {
       }
     }
   }, computed: {
-      setStars(){
+      setStars() {
       return Math.floor(this.singlemovie.vote_average / 2)
+    }, setImage() {
+      if (this.singlemovie.poster_path === null ) {
+      return "https://media.istockphoto.com/id/1339139937/zh/%E5%90%91%E9%87%8F/coming-soon-hanging-sign.jpg?s=612x612&w=0&k=20&c=bpQY2YRyrN-c7apYBsYglzY8AV99A56l_FmwgRaH4Co="
+      } else {
+        return "https://image.tmdb.org/t/p/w342" + this.singlemovie.poster_path 
+      }
+      
     }
   }
 }
@@ -51,7 +58,7 @@ export default {
   <!-- non usare 2 componenti, ne serve 1 con v-if/else. 
   SOLO CARDCOM, NO ALTRO COMPONENTE PER SERIES -->
   <div class="card">
-      <img class="card-img-top" :src=" 'https://image.tmdb.org/t/p/w342' + singlemovie.poster_path" alt="Card image cap">
+      <img class="card-img-top" :src="setImage" alt="Card image cap">
       <div class="card-body overflow-auto">
           <div class="card-title"><b>Title</b>: {{singlemovie.title}}</div>
             <div class="card-text"><b>Original Title</b>: {{singlemovie.original_title}}</div>
